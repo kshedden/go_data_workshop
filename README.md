@@ -9,6 +9,16 @@ never programmed before.  People familiar with scripting languages
 such as Python should find most aspects of Go to be fairly
 straightforward.
 
+Go is a new language that is being adopted by organizations that
+process large volumes of data.  It is also used in data center
+management and as a back-end language for web applications.  We will
+not try to characterize Go as a language here, or say much about its
+possible use cases.  If you are interested in this topic, you may want
+to watch these presentations by one of the primary designers of Go:
+[Another Go at language
+design](https://www.youtube.com/watch?v=7VcArS4Wpqk), [Simplicity is
+complicated]( https://www.youtube.com/watch?v=rFejpH_tAHM).
+
 ## Installation and setup
 
 The Go project and tools are both open source and community-driven.

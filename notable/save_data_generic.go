@@ -77,9 +77,6 @@ func main() {
 
 	// Parse the CSV data
 	crd := csv.NewReader(gid)
-	if err != nil {
-		panic(err)
-	}
 
 	// Read the header
 	_, err = crd.Read()
