@@ -1,10 +1,13 @@
 /*
-This script demonstrates reading a compressed CSV file, and
-printing a subset of the lines to standard output (the screen).
+This script demonstrates reading a compressed CSV file, printing a
+subset of the lines to standard output (the screen).
 
 The data can be obtained as an Excel sheet from this site:
 
 http://science.sciencemag.org/content/suppl/2014/07/30/345.6196.558.DC1
+
+To run this script, the data should be extracted from Excel and
+converted to gziped text/csv.
 */
 
 package main
