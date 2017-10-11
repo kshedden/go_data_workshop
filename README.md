@@ -13,7 +13,7 @@ straightforward.
 
 The Go project and tools are both open source and community-driven.
 To compile and run Go code on your computer, you will need to download
-and install the Go tool, which can be found
+and install the "Go tool", which can be found
 [here](https://golang.org/dl).  More detailed installation
 instructions are [here](https://golang.org/doc/install).
 Alternatively, if you are at UM and are using Flux, type "module load
