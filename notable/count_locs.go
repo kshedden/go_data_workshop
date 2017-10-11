@@ -3,11 +3,15 @@ This script demonstrates reading and calculating summary statistics
 from a compressed CSV file.  The file contains birth and death
 locations and dates for notable people.  We calculate and print the
 number of distinct locations that appear as birth locations, as death
-locations, and the number of distinct birth / death locations.
+locations, and the number of distinct birth / death location
+combinations.
 
 The data can be obtained as an Excel sheet from this site:
 
 http://science.sciencemag.org/content/suppl/2014/07/30/345.6196.558.DC1
+
+To run this script, the data should be extracted from Excel and
+converted to gziped text/csv.
 */
 
 package main
@@ -47,8 +51,13 @@ func main() {
 		panic(err)
 	}
 
+	// Track the number of distinct birth locations
 	blocs := make(map[string]int)
+
+	// Track the number of distinct death locations
 	dlocs := make(map[string]int)
+
+	// Track the number of distinct birth x death combinations
 	bdlocs := make(map[string]int)
 
 	for {
@@ -60,6 +69,7 @@ func main() {
 			panic(err)
 		}
 
+		// Update the statistics
 		blocs[row[3]]++
 		dlocs[row[8]]++
 		bdlocs[row[3]+"::"+row[8]]++

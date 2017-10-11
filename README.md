@@ -39,8 +39,8 @@ the standard uses of the Go tool.
 
 Go scripts can be placed anywhere in your file system.  Go packages
 that are able to be used by other Go programs should be placed in your
-GOHOME directory, which defaults to the go directory in the top level
-of your home directory, i.e. ~/go.
+GOHOME directory, which defaults to the directory named "go" in the
+top level of your home directory, i.e. ~/go.
 
 Go source files are text files with suffix ".go".  A very simple Go
 program is:
@@ -61,7 +61,7 @@ run simple.go`.  Alternatively, you can compile it to an executable
 using `go build simple.go`, then run the executable using `simple`.
 
 Difficulties with any of the steps above are likely due to a missing
-or incomplete installation of the Go tools, or misconfigured
+or incomplete installation of the Go tool, or misconfigured
 environment variables such as PATH.
 
 ## Resources
@@ -70,3 +70,6 @@ The [effective go](https://golang.org/doc/effective_go.html) document
 is a complete overview of the Go language.  A somewhat friendlier
 introduction to the language is the [Go
 tour](https://tour.golang.org/welcome/1).
+
+You can experiment with small Go programs in your browser using the
+[playground](https://play.golang.org).

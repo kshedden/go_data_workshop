@@ -7,6 +7,9 @@ struct, then the struct is serialized to disk in json format.
 The data can be obtained as an Excel sheet from this site:
 
 http://science.sciencemag.org/content/suppl/2014/07/30/345.6196.558.DC1
+
+To run this script, the data should be extracted from Excel and
+converted to gziped text/csv.
 */
 
 package main
@@ -20,6 +23,7 @@ import (
 	"strconv"
 )
 
+// A struct holding information about a notable person
 type notable struct {
 
 	// The person's name

@@ -9,6 +9,9 @@ generic implementation.
 The data can be obtained as an Excel sheet from this site:
 
 http://science.sciencemag.org/content/suppl/2014/07/30/345.6196.558.DC1
+
+To run this script, the data should be extracted from Excel and
+converted to gziped text/csv.
 */
 
 package main
@@ -24,6 +27,7 @@ import (
 	"strings"
 )
 
+// A struct holding information about a notable person
 type notable struct {
 
 	// The person's name
@@ -126,6 +130,8 @@ func main() {
 			Gender:    row[12],
 		}
 
+		// For simplicity, we don't handle errors here.  This
+		// means that unparseable values are represented as 0.
 		r.BYear, _ = strconv.Atoi(row[2])
 		r.DYear, _ = strconv.Atoi(row[7])
 		r.BLocLat, _ = strconv.ParseFloat(row[5], 64)

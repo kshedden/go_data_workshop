@@ -1,13 +1,18 @@
 /*
 This script demonstrates reading and calculating summary statistics
 from a compressed CSV file.  The file contains birth and death
-locations and dates for notable people.  We calculate and print the
-number of distinct locations that appear as birth locations, as death
-locations, and the number of distinct birth / death locations.
+locations and dates for notable people.
+
+We calculate the mean year of birth for each birth location.  Then we
+sort these alphabetically by the location name, and save the results
+as a CSV file.
 
 The data can be obtained as an Excel sheet from this site:
 
 http://science.sciencemag.org/content/suppl/2014/07/30/345.6196.558.DC1
+
+To run this script, the data should be extracted from Excel and
+converted to gziped text/csv.
 */
 
 package main
@@ -49,7 +54,12 @@ func main() {
 		panic(err)
 	}
 
+	// Accumulate the sum of all birth years at each birth
+	// location (later will be scaled to obtain the mean).
 	year := make(map[string]float64)
+
+	// Accumulate the number of people born at each birth
+	// location.
 	num := make(map[string]int)
 
 	for {
@@ -61,11 +71,13 @@ func main() {
 			panic(err)
 		}
 
+		// Convert year to a number
 		y, err := strconv.ParseFloat(row[2], 64)
 		if err != nil {
 			continue
 		}
 
+		// Update the statistics
 		year[row[3]] += y
 		num[row[3]]++
 	}
@@ -75,12 +87,15 @@ func main() {
 		year[k] /= float64(num[k])
 	}
 
+	// Extract the keys and sort them.
 	var a []string
 	for k, _ := range year {
 		a = append(a, k)
 	}
 	sort.StringSlice(a).Sort()
 
+	// Save the results as a CSV file, sorted alphabetically by
+	// location.
 	out, err := os.Create("mean_by_year.csv")
 	if err != nil {
 		panic(err)
